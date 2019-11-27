@@ -28,16 +28,30 @@ class Armlet extends StatefulWidget {
 
 class _ArmletState extends State<Armlet> {
   bool isActive = false;
+
+  void setStatus() {
+    this.isActive = !this.isActive;
+  }
+
+  String getStatus() {
+    return (this.isActive) ? 'aom_active.png' : 'aom_inactive.png';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: FlatButton(
         onPressed: () {
           print('You clicked me. But im still useless');
+          setState(() {
+            this.setStatus();
+          });
         },
         child: CircleAvatar(
           radius: 150.0,
-          backgroundImage: AssetImage('images/aom_inactive.png'),
+          backgroundImage: AssetImage(
+            'images/' + this.getStatus(),
+          ),
         ),
       ),
     );
