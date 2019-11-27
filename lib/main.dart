@@ -42,7 +42,6 @@ class _ArmletState extends State<Armlet> {
     return Center(
       child: FlatButton(
         onPressed: () {
-          print('You clicked me. But im still useless');
           setState(() {
             this.setStatus();
           });
